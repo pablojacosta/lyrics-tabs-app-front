@@ -19,11 +19,6 @@ body {
   font-family: var(--font-primary);
 }
 
-button {
-  color: #ffffff;
-  font-family: var(--font-primary);
-}
-
 h1,
 h2,
 h3,
@@ -71,6 +66,8 @@ button {
   font-weight: 700;
   letter-spacing: 0.04rem;
   cursor: pointer;
+  color: #ffffff;
+  font-family: var(--font-primary);
 
   @include responsives.resolution__mobile__m {
     font-size: 0.75rem;
@@ -80,6 +77,7 @@ button {
   &:hover {
     background-color: var(--color-white);
     color: var(--color-orange);
+    border: 0.3rem solid var(--color-orange);
   }
 }
 
