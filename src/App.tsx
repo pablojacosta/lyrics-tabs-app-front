@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      <h1>LYRICS AND TABS FINDER APP</h1>
+      <h1>LYRICS AND TABS FINDER</h1>
       <SearchSection
         handleInputChange={() => {}}
         onKeyDown={() => {}}
