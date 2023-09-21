@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from "./SearchInput.module.scss";
 
 interface ISearchInput {
   handleInputChange: () => void;
-  onKeyDown: () => void;
+  onKeyDown: (event: any) => void;
 }
 
 const SearchInput = ({ handleInputChange, onKeyDown }: ISearchInput) => {

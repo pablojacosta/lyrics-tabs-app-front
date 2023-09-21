@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Container from "@components/elements/Container";
 import styles from "./SearchSection.module.scss";
 import SearchInput from "./components/SearchInput";
@@ -5,7 +6,7 @@ import SearchButton from "./components/SearchButton";
 
 interface ISearchSection {
   handleInputChange: () => void;
-  onKeyDown: () => void;
+  onKeyDown: (event: any) => void;
   getData: () => void;
 }
 

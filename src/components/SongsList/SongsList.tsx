@@ -7,9 +7,9 @@ import { TSong } from "types/song";
 interface ISongsList {
   selectedArtist: string;
   selectedTitle: string;
-  lyrics: string;
+  lyrics: string | null;
   returnedSongs: TSong[];
-  getLyrics: () => void;
+  getLyrics: (url: string, title: string, artist: string) => void;
 }
 
 const SongsList = ({
