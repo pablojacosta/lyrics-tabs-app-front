@@ -8,7 +8,7 @@ interface ISongsList {
   selectedArtist: string;
   selectedTitle: string;
   lyrics: string | null;
-  returnedSongs: TSong[];
+  returnedSongs: TSong[] | null;
   getLyrics: (url: string, title: string, artist: string) => void;
 }
 
@@ -21,7 +21,7 @@ const SongsList = ({
 }: ISongsList) => {
   return (
     <div className={styles.songsList}>
-      {!lyrics ? (
+      {!lyrics && returnedSongs ? (
         <ul>
           {returnedSongs.map((song) => (
             <Song

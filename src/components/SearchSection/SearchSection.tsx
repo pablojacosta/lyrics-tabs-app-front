@@ -5,7 +5,7 @@ import SearchInput from "./components/SearchInput";
 import SearchButton from "./components/SearchButton";
 
 interface ISearchSection {
-  handleInputChange: () => void;
+  handleInputChange: (e: any) => void;
   onKeyDown: (event: any) => void;
   getData: () => void;
 }

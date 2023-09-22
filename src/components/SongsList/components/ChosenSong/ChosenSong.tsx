@@ -5,7 +5,7 @@ import { createMarkup } from "@utils/helpers/createMarkup";
 interface IChosenSong {
   selectedTitle: string;
   selectedArtist: string;
-  lyrics: string;
+  lyrics: string | null;
 }
 
 const ChosenSong = ({ selectedTitle, selectedArtist, lyrics }: IChosenSong) => {
@@ -17,18 +17,22 @@ const ChosenSong = ({ selectedTitle, selectedArtist, lyrics }: IChosenSong) => {
 
   return (
     <div className={styles.chosenSong}>
-      <a href="">
-        --- Tabs for {selectedArtist}'s {selectedTitle} ---
-      </a>
-      <div className={styles.lyrics}>
-        <div
-          dangerouslySetInnerHTML={createMarkup(
-            selectedTitle,
-            selectedArtist,
-            lyrics
-          )}
-        />
-      </div>
+      {lyrics && (
+        <>
+          <a href="">
+            --- Tabs for {selectedArtist}'s {selectedTitle} ---
+          </a>
+          <div className={styles.lyrics}>
+            <div
+              dangerouslySetInnerHTML={createMarkup(
+                selectedTitle,
+                selectedArtist,
+                lyrics
+              )}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

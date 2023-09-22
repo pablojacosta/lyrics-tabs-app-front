@@ -2,7 +2,7 @@
 import styles from "./SearchInput.module.scss";
 
 interface ISearchInput {
-  handleInputChange: () => void;
+  handleInputChange: (e: any) => void;
   onKeyDown: (event: any) => void;
 }
 

@@ -3,73 +3,71 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.scss";
 import "@styles/globals.scss";
 import SearchSection from "@components/SearchSection";
-import { api_key } from "@constants/env";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import SongsList from "@components/SongsList";
+import { TData } from "types/data";
+import { THit } from "types/hit";
+import { TSong } from "types/song";
 
 const App = () => {
-  const [update, setUpdate] = useState(false);
   const [input, setInput] = useState("");
   const [newSearch, setNewSearch] = useState("");
-  const [returnedSongs, setReturnedSongs] = useState([]);
+  const [data, setData] = useState<TData | null>(null);
+  const [returnedSongs, setReturnedSongs] = useState<TSong[] | null>(null);
   const [lyrics, setLyrics] = useState(null);
   const [selectedArtist, setSelectedArtist] = useState("");
   const [selectedTitle, setSelectedTitle] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    let didCancel = false;
-    console.log("UPDATE");
+  const handleInputChange = (e: any) => {
+    setInput(e.target.value);
+  };
 
-    if (!newSearch) {
+  useEffect(() => {
+    if (!input) {
       return;
     }
 
-    if (!didCancel) {
-      const options = {
-        method: "GET",
-        url: "https://genius.p.rapidapi.com/search",
-        params: { q: `${newSearch}` },
-        headers: {
-          "x-rapidapi-host": "genius.p.rapidapi.com",
-          "x-rapidapi-key": api_key,
-        },
-      };
+    setNewSearch(input);
+    setLyrics(null);
+    setInput("");
+  }, [input, newSearch]);
 
-      axios
-        .request(options)
-        .then((response: AxiosResponse<any, any>) => {
-          setReturnedSongs(
-            response.data.response.hits.map((hit: any) => hit.result)
-          );
-          setLoading(true);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+  useEffect(() => {
+    if (!data) {
+      return;
     }
 
-    return () => {
-      didCancel = true;
-      setLoading(false);
-    };
-  }, [newSearch, update]);
+    setReturnedSongs(data.hits.map((hit: THit) => hit.result));
+  }, [data]);
 
   const getData = () => {
-    setLyrics(null);
-    setUpdate((prevState) => !prevState);
-    setNewSearch(input);
-    setInput("");
-    document.title = `Results for ${input}`;
+    setLoading(true);
+
+    const options: AxiosRequestConfig<any> = {
+      method: "GET",
+      url: "http://localhost:3001/songs",
+      responseType: "text",
+      params: { newSearch },
+    };
+
+    axios
+      .request(options)
+      .then((response: any) => {
+        setData(JSON.parse(response.data));
+      })
+      .finally(() => setLoading(false))
+      .catch((err) => console.log(err));
+
+    document.title = `Results for ${newSearch}`;
   };
 
   const onKeyDown = (e: any) => {
     if (e.keyCode === 13) {
       setLyrics(null);
-      setUpdate((prevState) => !prevState);
       setNewSearch(input);
       setInput("");
-      document.title = `Results for ${input}`;
+      document.title = `Results for ${newSearch}`;
     }
   };
 
@@ -97,11 +95,11 @@ const App = () => {
     <div className={styles.app}>
       <h1>LYRICS AND TABS FINDER</h1>
       <SearchSection
-        handleInputChange={() => {}}
+        handleInputChange={handleInputChange}
         onKeyDown={onKeyDown}
         getData={getData}
       />
-      {!loading && lyrics && (
+      {!loading && (
         <SongsList
           selectedArtist={selectedArtist}
           selectedTitle={selectedTitle}
