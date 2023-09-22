@@ -2,6 +2,7 @@
 
 .songsList {
   margin-top: 2rem;
+  margin-bottom: 6rem;
 
   @include responsives.resolution__mobile {
     margin-top: 1rem;
