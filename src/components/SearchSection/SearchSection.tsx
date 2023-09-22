@@ -7,14 +7,9 @@ import SearchButton from "./components/SearchButton";
 interface ISearchSection {
   handleInputChange: (e: any) => void;
   onKeyDown: (event: any) => void;
-  getData: () => void;
 }
 
-const SearchSection = ({
-  handleInputChange,
-  onKeyDown,
-  getData,
-}: ISearchSection) => {
+const SearchSection = ({ handleInputChange, onKeyDown }: ISearchSection) => {
   return (
     <Container>
       <div className={styles.searchSection}>
@@ -22,7 +17,7 @@ const SearchSection = ({
           handleInputChange={handleInputChange}
           onKeyDown={onKeyDown}
         />
-        <SearchButton getData={getData} />
+        <SearchButton />
       </div>
     </Container>
   );

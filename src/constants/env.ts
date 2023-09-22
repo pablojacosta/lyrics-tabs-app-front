@@ -1,1 +1,1 @@
-export const api_key = import.meta.env.VITE_API_KEY;
+export const LYRICS_STORE = "lyrics_store";

@@ -1,10 +1,9 @@
+import useGetSearchData from "@hooks/useGetSearchData";
 import styles from "./SearchButton.module.scss";
 
-interface ISearchButton {
-  getData: () => void;
-}
+const SearchButton = () => {
+  const { getData } = useGetSearchData();
 
-const SearchButton = ({ getData }: ISearchButton) => {
   return (
     <div className={styles.searchButton}>
       <button onClick={getData}>Search!</button>

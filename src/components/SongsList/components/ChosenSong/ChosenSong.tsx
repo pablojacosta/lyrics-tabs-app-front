@@ -18,20 +18,15 @@ const ChosenSong = ({ selectedTitle, selectedArtist, lyrics }: IChosenSong) => {
   return (
     <div className={styles.chosenSong}>
       {lyrics && (
-        <>
-          <a href="">
-            --- Tabs for {selectedArtist}'s {selectedTitle} ---
-          </a>
-          <div className={styles.lyrics}>
-            <div
-              dangerouslySetInnerHTML={createMarkup(
-                selectedTitle,
-                selectedArtist,
-                lyrics
-              )}
-            />
-          </div>
-        </>
+        <div className={styles.lyrics}>
+          <div
+            dangerouslySetInnerHTML={createMarkup(
+              selectedTitle,
+              selectedArtist,
+              lyrics
+            )}
+          />
+        </div>
       )}
     </div>
   );

@@ -1,17 +1,18 @@
+import { TSong } from "types/song";
 import styles from "./Song.module.scss";
 
 interface ISong {
   title: string;
-  url: string;
   artist: string;
   image: string;
   tabsUrl: string;
-  getLyrics: (url: string, title: string, artist: string) => void;
+  getLyrics: (song: TSong) => void;
+  song: TSong;
 }
 
-const Song = ({ title, url, artist, image, tabsUrl, getLyrics }: ISong) => {
+const Song = ({ title, artist, image, tabsUrl, getLyrics, song }: ISong) => {
   return (
-    <div className={styles.song} onClick={() => getLyrics(url, title, artist)}>
+    <div className={styles.song} onClick={() => getLyrics(song)}>
       <div className={styles.left}>
         <picture>
           <img src={image} alt="Album" />
