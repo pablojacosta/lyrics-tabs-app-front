@@ -24,6 +24,10 @@ const useGetSearchData = () => {
   }, [data, setReturnedSongs, isDataLoading, setShowLoader]);
 
   const getData = async () => {
+    if (!newSearch) {
+      return;
+    }
+
     setDataIsLoading(true);
 
     const options: AxiosRequestConfig<any> = {

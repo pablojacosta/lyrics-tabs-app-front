@@ -6,6 +6,7 @@ import SongsList from "@components/SongsList";
 import Title from "@components/Title";
 import { useLyricsStore } from "@store/useLyricsStore";
 import Loader from "@components/shared/Loader";
+import useGetSearchData from "@hooks/useGetSearchData";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -19,6 +20,7 @@ const App = () => {
     lyrics,
     returnedSongs,
   } = useLyricsStore();
+  const { getData } = useGetSearchData();
   const fullBg = !lyrics && !returnedSongs;
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,11 +44,8 @@ const App = () => {
   }, [input, newSearch, setLyrics, setNewSearch, setShowLoader]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      setLyrics(null);
-      setNewSearch(input);
-      setInput("");
-      document.title = `Results for ${newSearch}`;
+    if (e.key === "Enter" || e.key === "NumpadEnter") {
+      getData();
     }
   };
 
