@@ -7,16 +7,11 @@ import { useLyricsStore } from "@store/useLyricsStore";
 import useGetLyrics from "@hooks/useGetLyrics";
 
 const SongsList = () => {
-  const { lyrics, returnedSongs, selectedArtist, selectedTitle, song } =
+  const { lyrics, returnedSongs, selectedArtist, selectedTitle } =
     useLyricsStore();
   const { getLyrics } = useGetLyrics();
   const showSongsList = !lyrics && returnedSongs;
   const showLyrics = lyrics && selectedArtist && selectedTitle;
-
-  console.log("LYRICS", lyrics);
-  console.log("SELECTED ARTIS", selectedArtist);
-  console.log("SELECTED TITLE", selectedTitle);
-  console.log("SONG", song);
 
   return (
     <Container>

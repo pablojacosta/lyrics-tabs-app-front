@@ -12,7 +12,7 @@ const useGetSearchData = () => {
     if (!data || isDataLoading) {
       return;
     }
-    console.log("SETTING SONGS");
+
     setReturnedSongs(data.hits.map((hit: THit) => hit.result));
 
     return () => {
@@ -33,7 +33,6 @@ const useGetSearchData = () => {
     await axios
       .request(options)
       .then((response: AxiosResponse<any, any>) => {
-        console.log("RESPONSE RECEIVED");
         setData(JSON.parse(response.data));
       })
       .finally(() => setDataIsLoading(false))
