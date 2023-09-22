@@ -1,5 +1,11 @@
+@use "@styles/_responsives" as responsives;
+
 .songsList {
   margin-top: 2rem;
+
+  @include responsives.resolution__mobile {
+    margin-top: 1rem;
+  }
 
   ul {
     padding: 0;

@@ -1,3 +1,5 @@
+@use "@styles/_responsives" as responsives;
+
 .song {
   margin: 0.5rem 0;
   display: flex;
@@ -8,26 +10,46 @@
   padding: 0.5rem;
   border: 0.05rem solid var(--color-gray);
   width: 40rem;
+  cursor: pointer;
+
+  @include responsives.resolution__tablet {
+    width: 30rem;
+  }
+
+  @include responsives.resolution__mobile__m {
+    width: 20rem;
+    padding: 0.3rem;
+  }
+
+  @include responsives.resolution__mobile__s {
+    width: 17rem;
+  }
 
   .left {
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
 
-  .lyricsButton {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    width: inherit;
+    @include responsives.resolution__mobile__m {
+      gap: 0.5rem;
+    }
+
+    p {
+      margin: 0;
+
+      @include responsives.resolution__mobile__m {
+        font-size: 0.875rem;
+      }
+
+      @include responsives.resolution__mobile__s {
+        font-size: 0.7rem;
+      }
+    }
   }
 
   picture {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
 
     img {
       width: inherit;
@@ -39,9 +61,21 @@
       text-decoration: none;
       color: inherit;
     }
+
+    @include responsives.resolution__mobile__m {
+      width: 4rem;
+    }
+
+    @include responsives.resolution__mobile__s {
+      width: 3.5rem;
+    }
   }
 
   &:hover {
     transform: scale(1.1);
+
+    @include responsives.resolution__tablet {
+      transform: scale(1);
+    }
   }
 }

@@ -8,6 +8,7 @@ import SongsList from "@components/SongsList";
 import { TData } from "types/data";
 import { THit } from "types/hit";
 import { TSong } from "types/song";
+import Title from "@components/Title";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -93,7 +94,7 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      <h1>LYRICS AND TABS FINDER</h1>
+      <Title />
       <SearchSection
         handleInputChange={handleInputChange}
         onKeyDown={onKeyDown}

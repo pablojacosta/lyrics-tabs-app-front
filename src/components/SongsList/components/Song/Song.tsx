@@ -11,23 +11,18 @@ interface ISong {
 
 const Song = ({ title, url, artist, image, tabsUrl, getLyrics }: ISong) => {
   return (
-    <div className={styles.song}>
+    <div className={styles.song} onClick={() => getLyrics(url, title, artist)}>
       <div className={styles.left}>
         <picture>
           <img src={image} alt="Album" />
         </picture>
-        <button
-          className={styles.lyricsButton}
-          onClick={() => getLyrics(url, title, artist)}
-        >
+        <p>
           {title} ({artist})
-        </button>
+        </p>
       </div>
-      <button>
-        <a href={tabsUrl} target="_blank" rel="noopener noreferrer">
-          Tabs
-        </a>
-      </button>
+      <a href={tabsUrl} target="_blank" rel="noopener noreferrer">
+        <button>Tabs</button>
+      </a>
     </div>
   );
 };

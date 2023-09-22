@@ -1,3 +1,5 @@
+@use "@styles/_responsives" as responsives;
+
 .searchInput {
   input {
     width: 25rem;
@@ -10,6 +12,22 @@
 
     &:focus {
       outline: none;
+    }
+
+    @include responsives.resolution__tablet {
+      width: 17.5rem;
+    }
+
+    @include responsives.resolution__mobile__m {
+      width: 15rem;
+    }
+
+    @include responsives.resolution__mobile {
+      width: 19rem;
+    }
+
+    @include responsives.resolution__mobile__s {
+      width: 16rem;
     }
   }
 }

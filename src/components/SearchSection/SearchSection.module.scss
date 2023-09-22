@@ -1,6 +1,21 @@
+@use "@styles/_responsives" as responsives;
+
 .searchSection {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5rem;
+
+  @include responsives.resolution__tablet {
+    gap: 3rem;
+  }
+
+  @include responsives.resolution__mobile__m {
+    gap: 2rem;
+  }
+
+  @include responsives.resolution__mobile {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
