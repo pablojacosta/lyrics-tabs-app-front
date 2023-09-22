@@ -6,27 +6,40 @@ import SearchSection from "@components/SearchSection";
 import SongsList from "@components/SongsList";
 import Title from "@components/Title";
 import { useLyricsStore } from "@store/useLyricsStore";
-import useGetSearchData from "@hooks/useGetSearchData";
+import Loader from "@components/shared/Loader";
 
 const App = () => {
   const [input, setInput] = useState("");
-  const { newSearch, setNewSearch, setLyrics } = useLyricsStore();
-  const { isDataLoading } = useGetSearchData();
-  const showSongsList = !isDataLoading;
+  const {
+    newSearch,
+    setNewSearch,
+    setLyrics,
+    showLoader,
+    setShowLoader,
+    clearStore,
+    lyrics,
+    returnedSongs,
+  } = useLyricsStore();
+  const fullBg = !lyrics && !returnedSongs;
 
   const handleInputChange = (e: any) => {
     setInput(e.target.value);
   };
 
   useEffect(() => {
+    clearStore();
+  }, []);
+
+  useEffect(() => {
     if (!input) {
+      setShowLoader(false);
       return;
     }
 
     setNewSearch(input);
     setLyrics(null);
     setInput("");
-  }, [input, newSearch, setLyrics, setNewSearch]);
+  }, [input, newSearch, setLyrics, setNewSearch, setShowLoader]);
 
   const onKeyDown = (e: any) => {
     if (e.keyCode === 13) {
@@ -37,14 +50,19 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("SHOW LOADER", showLoader);
+  }, [showLoader]);
+
   return (
-    <div className={styles.app}>
+    <div className={`${styles.app} ${fullBg ? styles.fullBg : ""}`}>
       <Title />
       <SearchSection
         handleInputChange={handleInputChange}
         onKeyDown={onKeyDown}
       />
-      {showSongsList && <SongsList />}
+      {showLoader && <Loader />}
+      <SongsList />
     </div>
   );
 };

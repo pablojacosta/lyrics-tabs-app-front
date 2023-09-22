@@ -1,12 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { useLyricsStore } from "@store/useLyricsStore";
 import { TSong } from "types/song";
 
 const useGetLyrics = () => {
-  const { setSelectedArtist, setSelectedTitle, setLyrics } = useLyricsStore();
+  const {
+    setSelectedArtist,
+    setSelectedTitle,
+    setLyrics,
+    setShowLoader,
+    lyrics,
+  } = useLyricsStore();
   const [isLyricsLoading, setIsLyricsLoading] = useState(false);
+
+  useEffect(() => {
+    if (!lyrics || isLyricsLoading) {
+      setShowLoader(true);
+      return;
+    }
+
+    setShowLoader(false);
+  }, [isLyricsLoading, lyrics, setShowLoader]);
 
   const getLyrics = async (song: TSong) => {
     const { url, title, primary_artist } = song;

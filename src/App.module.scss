@@ -7,4 +7,8 @@
   padding-top: 2rem;
   background-blend-mode: multiply;
   background-attachment: fixed;
+
+  &.fullBg {
+    height: 100vh;
+  }
 }

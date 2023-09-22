@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   gap: 5rem;
+  height: 100%;
 
   @include responsives.resolution__tablet {
     gap: 3rem;

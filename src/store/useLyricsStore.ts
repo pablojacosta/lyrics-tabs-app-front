@@ -12,6 +12,7 @@ interface ILyricsStore {
   returnedSongs: TSong[] | null;
   selectedArtist: string | null;
   selectedTitle: string | null;
+  showLoader: boolean;
   setNewSearch: (newSearch: string) => void;
   setData: (data: TData) => void;
   setSong: (song: TSong) => void;
@@ -19,6 +20,7 @@ interface ILyricsStore {
   setReturnedSongs: (returnedSongs: TSong[] | null) => void;
   setSelectedArtist: (selectedArtist: string) => void;
   setSelectedTitle: (selectedTitle: string) => void;
+  setShowLoader: (showLoader: boolean) => void;
   clearStore: () => void;
 }
 
@@ -30,6 +32,7 @@ const initialState = {
   returnedSongs: null,
   selectedArtist: null,
   selectedTitle: null,
+  showLoader: false,
 };
 
 export const useLyricsStore = create<ILyricsStore>()(
@@ -70,6 +73,11 @@ export const useLyricsStore = create<ILyricsStore>()(
         set((state) => ({
           ...state,
           selectedTitle,
+        })),
+      setShowLoader: (showLoader: boolean) =>
+        set((state) => ({
+          ...state,
+          showLoader,
         })),
       clearStore: () => set(() => ({ ...initialState })),
     }),

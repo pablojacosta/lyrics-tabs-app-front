@@ -5,20 +5,23 @@ import { useLyricsStore } from "@store/useLyricsStore";
 import { THit } from "types/hit";
 
 const useGetSearchData = () => {
-  const { newSearch, setData, data, setReturnedSongs } = useLyricsStore();
+  const { newSearch, setData, data, setReturnedSongs, setShowLoader } =
+    useLyricsStore();
   const [isDataLoading, setDataIsLoading] = useState(false);
 
   useEffect(() => {
     if (!data || isDataLoading) {
+      setShowLoader(true);
       return;
     }
 
     setReturnedSongs(data.hits.map((hit: THit) => hit.result));
+    setShowLoader(false);
 
     return () => {
       setReturnedSongs(null);
     };
-  }, [data, setReturnedSongs, isDataLoading]);
+  }, [data, setReturnedSongs, isDataLoading, setShowLoader]);
 
   const getData = async () => {
     setDataIsLoading(true);
@@ -41,7 +44,7 @@ const useGetSearchData = () => {
     document.title = `Results for ${newSearch}`;
   };
 
-  return { getData, isDataLoading };
+  return { getData };
 };
 
 export default useGetSearchData;
