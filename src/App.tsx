@@ -42,7 +42,7 @@ const App = () => {
   }, [input, newSearch, setLyrics, setNewSearch, setShowLoader]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.keyCode === 13) {
+    if (e.key === "Enter") {
       setLyrics(null);
       setNewSearch(input);
       setInput("");
