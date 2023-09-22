@@ -28,6 +28,7 @@ const App = () => {
 
   useEffect(() => {
     clearStore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
