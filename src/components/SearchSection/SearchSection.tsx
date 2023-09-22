@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Container from "@components/elements/Container";
 import styles from "./SearchSection.module.scss";
 import SearchInput from "./components/SearchInput";
 import SearchButton from "./components/SearchButton";
+import { ChangeEvent, KeyboardEvent } from "react";
 
 interface ISearchSection {
-  handleInputChange: (e: any) => void;
-  onKeyDown: (event: any) => void;
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const SearchSection = ({ handleInputChange, onKeyDown }: ISearchSection) => {

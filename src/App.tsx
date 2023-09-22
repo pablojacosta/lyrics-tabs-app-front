@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import styles from "./App.module.scss";
 import "@styles/globals.scss";
 import SearchSection from "@components/SearchSection";
@@ -22,7 +21,7 @@ const App = () => {
   } = useLyricsStore();
   const fullBg = !lyrics && !returnedSongs;
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 
@@ -42,7 +41,7 @@ const App = () => {
     setInput("");
   }, [input, newSearch, setLyrics, setNewSearch, setShowLoader]);
 
-  const onKeyDown = (e: any) => {
+  const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) {
       setLyrics(null);
       setNewSearch(input);

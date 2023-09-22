@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ChangeEvent, KeyboardEvent } from "react";
 import styles from "./SearchInput.module.scss";
 
 interface ISearchInput {
-  handleInputChange: (e: any) => void;
-  onKeyDown: (event: any) => void;
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const SearchInput = ({ handleInputChange, onKeyDown }: ISearchInput) => {
