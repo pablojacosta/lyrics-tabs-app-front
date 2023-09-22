@@ -1,19 +1,6 @@
 .searchSection {
   display: flex;
   align-items: center;
-  gap: 3rem;
-
-  input {
-    width: 25rem;
-    height: 2rem;
-    border-radius: 1rem;
-    border: 0.3rem solid var(--color-orange);
-    font-family: var(--font-primary);
-    font-size: 1.2rem;
-    padding-left: 1rem;
-
-    &:focus {
-      outline: none;
-    }
-  }
+  justify-content: center;
+  gap: 5rem;
 }

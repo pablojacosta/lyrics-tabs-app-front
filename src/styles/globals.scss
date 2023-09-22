@@ -9,6 +9,9 @@
   --color-white: #{colors.$colorWhite};
   --color-black: #{colors.$colorBlack};
   --color-orange: #{colors.$colorOrange};
+  --color-gray: #{colors.$colorGray};
+
+  --gradient-alpha: #{colors.$gradientAlpha};
 }
 
 body {
@@ -56,7 +59,7 @@ ul {
 }
 
 button {
-  background-color: var(--color-orange);
+  background-color: var(--color-gray);
   border: none;
   border-radius: 1rem;
   width: 8rem;
@@ -67,7 +70,6 @@ button {
   letter-spacing: 0.04rem;
   cursor: pointer;
   color: #ffffff;
-  font-family: var(--font-primary);
 
   @include responsives.resolution__mobile__m {
     font-size: 0.75rem;
@@ -76,8 +78,7 @@ button {
 
   &:hover {
     background-color: var(--color-white);
-    color: var(--color-orange);
-    border: 0.3rem solid var(--color-orange);
+    color: var(--color-gray);
   }
 }
 

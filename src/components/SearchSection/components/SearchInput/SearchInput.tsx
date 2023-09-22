@@ -8,7 +8,7 @@ interface ISearchInput {
 
 const SearchInput = ({ handleInputChange, onKeyDown }: ISearchInput) => {
   return (
-    <div className={styles.searchinput}>
+    <div className={styles.searchInput}>
       <input
         type="text"
         placeholder="Type Artist, Song and/or Lyric phrase"

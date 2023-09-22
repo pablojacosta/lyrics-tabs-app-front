@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("./assets/images/ramones-bg.jpg");
+  background: var(--gradient-alpha), url("./assets/images/ramones-bg.jpg");
   height: 100vh;
   background-size: cover;
   padding-top: 2rem;
+  background-blend-mode: multiply;
 }
