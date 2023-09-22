@@ -50,10 +50,6 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("SHOW LOADER", showLoader);
-  }, [showLoader]);
-
   return (
     <div className={`${styles.app} ${fullBg ? styles.fullBg : ""}`}>
       <Title />
