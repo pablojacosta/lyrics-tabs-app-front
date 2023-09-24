@@ -3,14 +3,11 @@ import styles from "./GoBackButton.module.scss";
 import IconBxArrowBack from "@components/elements/Icons/ArrowIcon/ArrowIcon";
 
 const GoBackButton = () => {
-  const { setLyrics, setSelectedArtist, setSelectedTitle, setShowLoader } =
-    useLyricsStore();
+  const { setNewSearch, setLyrics } = useLyricsStore();
 
   const handleOnClick = () => {
+    setNewSearch("");
     setLyrics(null);
-    setSelectedArtist(null);
-    setSelectedTitle(null);
-    setShowLoader(false);
   };
 
   return (

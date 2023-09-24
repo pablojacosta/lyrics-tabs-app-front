@@ -5,7 +5,7 @@ import Song from "./components/Song";
 import Container from "@components/elements/Container";
 import { useLyricsStore } from "@store/useLyricsStore";
 import useGetLyrics from "@hooks/useGetLyrics";
-import GoBackButton from "@components/GoBackButton";
+import GoBackButton from "@components/SongsList/components/GoBackButton";
 
 const SongsList = () => {
   const { lyrics, returnedSongs, selectedArtist, selectedTitle } =

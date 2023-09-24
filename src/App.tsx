@@ -20,9 +20,21 @@ const App = () => {
     clearStore,
     lyrics,
     returnedSongs,
+    selectedArtist,
+    selectedTitle,
   } = useLyricsStore();
   const { getData } = useGetSearchData();
   const fullBg = !lyrics && !returnedSongs;
+
+  console.log("------------------------------");
+  console.log("lyrics", lyrics);
+  console.log("selectedArtis", selectedArtist);
+  console.log("selectedTitle", selectedTitle);
+  console.log("returnedSongs", returnedSongs);
+  console.log("showLoader", showLoader);
+  console.log("newSearch", newSearch);
+  console.log("input", input);
+  console.log("------------------------------");
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
