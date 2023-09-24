@@ -32,7 +32,7 @@ const useGetSearchData = () => {
 
     const options: AxiosRequestConfig<any> = {
       method: "GET",
-      url: "http://localhost:3001/songs",
+      url: "/songs",
       responseType: "text",
       params: { newSearch },
     };

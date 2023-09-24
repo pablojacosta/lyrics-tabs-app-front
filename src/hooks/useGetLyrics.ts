@@ -32,7 +32,7 @@ const useGetLyrics = () => {
 
     const options: AxiosRequestConfig<any> = {
       method: "GET",
-      url: "http://localhost:3001/lyrics",
+      url: "/lyrics",
       responseType: "text",
       params: { passedUrl: url },
     };
