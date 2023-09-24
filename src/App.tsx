@@ -7,6 +7,7 @@ import Title from "@components/Title";
 import { useLyricsStore } from "@store/useLyricsStore";
 import Loader from "@components/shared/Loader";
 import useGetSearchData from "@hooks/useGetSearchData";
+import Footer from "@components/shared/Footer";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -58,6 +59,7 @@ const App = () => {
       />
       {showLoader && <Loader />}
       <SongsList />
+      <Footer />
     </div>
   );
 };

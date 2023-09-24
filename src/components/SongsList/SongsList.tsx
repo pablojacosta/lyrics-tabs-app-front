@@ -5,6 +5,7 @@ import Song from "./components/Song";
 import Container from "@components/elements/Container";
 import { useLyricsStore } from "@store/useLyricsStore";
 import useGetLyrics from "@hooks/useGetLyrics";
+import GoBackButton from "@components/GoBackButton";
 
 const SongsList = () => {
   const { lyrics, returnedSongs, selectedArtist, selectedTitle } =
@@ -15,7 +16,9 @@ const SongsList = () => {
 
   return (
     <Container>
-      <div className={styles.songsList}>
+      <div
+        className={`${styles.songsList} ${showLyrics ? styles.showLyrics : ""}`}
+      >
         {showSongsList && (
           <ul>
             {returnedSongs.map((song) => (
@@ -32,11 +35,14 @@ const SongsList = () => {
           </ul>
         )}
         {showLyrics && (
-          <ChosenSong
-            selectedArtist={selectedArtist}
-            selectedTitle={selectedTitle}
-            lyrics={lyrics}
-          />
+          <>
+            <GoBackButton />
+            <ChosenSong
+              selectedArtist={selectedArtist}
+              selectedTitle={selectedTitle}
+              lyrics={lyrics}
+            />
+          </>
         )}
       </div>
     </Container>

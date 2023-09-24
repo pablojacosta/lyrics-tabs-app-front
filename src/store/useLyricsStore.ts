@@ -18,8 +18,8 @@ interface ILyricsStore {
   setSong: (song: TSong) => void;
   setLyrics: (lyrics: string | null) => void;
   setReturnedSongs: (returnedSongs: TSong[] | null) => void;
-  setSelectedArtist: (selectedArtist: string) => void;
-  setSelectedTitle: (selectedTitle: string) => void;
+  setSelectedArtist: (selectedArtist: string | null) => void;
+  setSelectedTitle: (selectedTitle: string | null) => void;
   setShowLoader: (showLoader: boolean) => void;
   clearStore: () => void;
 }
@@ -64,12 +64,12 @@ export const useLyricsStore = create<ILyricsStore>()(
           ...state,
           returnedSongs,
         })),
-      setSelectedArtist: (selectedArtist: string) =>
+      setSelectedArtist: (selectedArtist: string | null) =>
         set((state) => ({
           ...state,
           selectedArtist,
         })),
-      setSelectedTitle: (selectedTitle: string) =>
+      setSelectedTitle: (selectedTitle: string | null) =>
         set((state) => ({
           ...state,
           selectedTitle,

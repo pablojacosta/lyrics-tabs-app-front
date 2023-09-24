@@ -1,0 +1,17 @@
+@use "@styles/_responsives" as responsives;
+
+.goBackButton {
+  margin: 1rem auto 1rem auto;
+  button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 8rem;
+    height: 2.5rem;
+
+    @include responsives.resolution__mobile__m {
+      gap: 0.5rem;
+      width: 6.5rem;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@use "@styles/_responsives" as responsives;
+
 .chosenSong {
   background-color: var(--color-white);
   color: var(--color-black);
@@ -11,5 +13,11 @@
   h2 {
     background-color: var(--color-white);
     color: var(--color-black);
+  }
+
+  @include responsives.resolution__tablet {
+    h2 {
+      line-height: 1.6rem;
+    }
   }
 }

@@ -3,6 +3,12 @@
 .songsList {
   margin-top: 2rem;
   margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+
+  &.showLyrics {
+    margin-top: 0;
+  }
 
   @include responsives.resolution__mobile {
     margin-top: 1rem;
