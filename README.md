@@ -9,4 +9,3 @@ It fetches tab's data from Songsterr.
 The Backend was made using Node and Typescript.
 (Backend code: https://github.com/pablojacosta/lyrics-tabs-app-back)
 
-https://lyrics-and-tabs-finder.netlify.app/
