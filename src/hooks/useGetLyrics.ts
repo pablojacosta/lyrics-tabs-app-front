@@ -32,7 +32,7 @@ const useGetLyrics = () => {
 
     const options: AxiosRequestConfig<any> = {
       method: "GET",
-      url: "/lyrics",
+      url: "https://lyrics-and-tabs-finder.onrender.com/lyrics",
       responseType: "text",
       params: { passedUrl: url },
     };
