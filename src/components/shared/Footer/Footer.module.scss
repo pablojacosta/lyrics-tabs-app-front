@@ -7,11 +7,14 @@
   padding: 0.5rem 0 0.5rem 0;
   background: var(--gradient-beta);
   width: 100%;
-  position: fixed;
-  bottom: 0;
 
   &.removeBg {
     background: none;
+  }
+
+  &.isHome {
+    position: fixed;
+    bottom: 0;
   }
 
   @include responsives.resolution__mobile__m {

@@ -59,7 +59,7 @@ const App = () => {
       />
       {showLoader && <Loader />}
       <SongsList />
-      <Footer />
+      <Footer isHome={fullBg} />
     </div>
   );
 };
