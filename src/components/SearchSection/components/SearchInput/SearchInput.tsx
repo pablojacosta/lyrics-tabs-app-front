@@ -14,6 +14,7 @@ const SearchInput = ({ handleInputChange, onKeyDown }: ISearchInput) => {
         placeholder="Type Artist, Song and/or Lyric phrase"
         onChange={handleInputChange}
         onKeyDown={onKeyDown}
+        spellCheck="false"
       />
     </div>
   );

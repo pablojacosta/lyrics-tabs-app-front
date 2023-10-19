@@ -5,11 +5,16 @@ import Separator from "@components/elements/Separator";
 
 interface IFooter {
   removeBg?: boolean;
+  isHome?: boolean;
 }
 
-const Footer = ({ removeBg }: IFooter) => {
+const Footer = ({ removeBg, isHome }: IFooter) => {
   return (
-    <footer className={`${styles.footer} ${removeBg ? styles.removeBg : ""}`}>
+    <footer
+      className={`${styles.footer} ${removeBg ? styles.removeBg : ""} ${
+        isHome ? styles.isHome : ""
+      }`}
+    >
       <Container>
         <Separator color="white" />
         <SocialIcons />
