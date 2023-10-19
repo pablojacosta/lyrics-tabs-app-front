@@ -32,7 +32,7 @@ const useGetSearchData = () => {
 
     const options: AxiosRequestConfig<any> = {
       method: "GET",
-      url: "/songs",
+      url: "https://lyrics-and-tabs-finder.onrender.com/songs",
       responseType: "text",
       params: { newSearch },
     };
